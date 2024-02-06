@@ -35,15 +35,73 @@ namespace Khalitov41Shoes
             //связаться с листвью
             ProductListView.ItemsSource = currentProduct;
             //добавить строки
-            //CostComboBox.SelectedIndex = 0;
-            //DiscntComboBox.SelectedIndex = 0;
 
-            //UpdateProduct();
+            ProdAll.Text = Convert.ToString(currentProduct.Count);
+
+            CostComboBox.SelectedIndex = 0;
+            DiscntComboBox.SelectedIndex = 0;
+
+            UpdateProduct();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage());
+        }
+
+        private void ProdSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateProduct();
+        }
+
+        private void CostComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateProduct();
+        }
+
+        private void DiscntComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateProduct();
+        }
+
+        public void UpdateProduct()
+        {
+            var currentProduct = Khalitov41ShoesEntities.GetContext().Product.ToList();
+            currentProduct = currentProduct.Where(p => p.ProductName.ToLower().Contains(ProdSearch.Text.ToLower())).ToList();
+            if (CostComboBox.SelectedIndex == 0)
+            {
+            }
+            else if (CostComboBox.SelectedIndex == 1)
+            {
+                currentProduct = currentProduct.OrderBy(p => p.ProductCost).ToList();
+            }
+            else if (CostComboBox.SelectedIndex == 2)
+            {
+                currentProduct = currentProduct.OrderByDescending(p => p.ProductCost).ToList();
+            }
+            if (DiscntComboBox.SelectedIndex == 0)
+            {
+
+            }
+            else if (DiscntComboBox.SelectedIndex == 1)
+            {
+                currentProduct = currentProduct.Where(p => (p.ProductDiscountAmount >= 0 && p.ProductDiscountAmount < 10)).ToList();
+            }
+            else if (DiscntComboBox.SelectedIndex == 2)
+            {
+                currentProduct = currentProduct.Where(p => (p.ProductDiscountAmount >= 10 && p.ProductDiscountAmount < 15)).ToList();
+            }
+            else if (DiscntComboBox.SelectedIndex == 3)
+            {
+                currentProduct = currentProduct.Where(p => (p.ProductDiscountAmount >= 15)).ToList();
+            }
+
+            ProdAtTheMoment.Text = Convert.ToString(currentProduct.Count);
+
+            ProductListView.ItemsSource = currentProduct;
+
+            TableList = currentProduct;
+
         }
     }
 }

@@ -172,16 +172,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="KhalitovModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KhalitovModel.edmx</DependentUpon>
-      <LastGenOutput>KhalitovModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="KhalitovModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KhalitovModel.edmx</DependentUpon>
-      <LastGenOutput>KhalitovModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Productimages\B320R5.jpg" />
     <Resource Include="Productimages\D329H3.jpg" />
     <Resource Include="Productimages\D572U8.jpg" />
@@ -192,6 +182,18 @@
     <Resource Include="Productimages\H782T5.jpg" />
     <Resource Include="Productimages\J384T6.jpg" />
     <Resource Include="Productimages\А112Т4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KhalitovModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KhalitovModel.edmx</DependentUpon>
+      <LastGenOutput>KhalitovModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KhalitovModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KhalitovModel.edmx</DependentUpon>
+      <LastGenOutput>KhalitovModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

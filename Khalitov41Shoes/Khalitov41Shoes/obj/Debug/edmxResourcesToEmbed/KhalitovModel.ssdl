@@ -8,11 +8,9 @@
     <Property Name="OrderDate" Type="date" Nullable="false" />
     <Property Name="OrderDeliveryDate" Type="date" Nullable="false" />
     <Property Name="OrderPickupPoint" Type="int" Nullable="false" />
-    <Property Name="OrderClientSurname" Type="nvarchar" MaxLength="50" />
-    <Property Name="OrderClierntName" Type="nvarchar" MaxLength="50" />
-    <Property Name="OrderClientPatronymic" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderClientID" Type="int" />
     <Property Name="OrderCode" Type="int" Nullable="false" />
-    <Property Name="OrderStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="OrderProduct">
     <Key>
@@ -117,6 +115,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="Хранилище Khalitov41ShoesModelContainer">
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
@@ -138,6 +148,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Order_PickUpPoint" Association="Self.FK_Order_PickUpPoint">
       <End Role="PickUpPoint" EntitySet="PickUpPoint" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="User" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
   </EntityContainer>

@@ -18,14 +18,13 @@ namespace Khalitov41Shoes
         private static Khalitov41ShoesEntities _context;
         public static Khalitov41ShoesEntities GetContext()
         {
-                if (_context == null)
-                {
-                    _context = new Khalitov41ShoesEntities();
-                }
+            if (_context == null)
+            {
+                _context = new Khalitov41ShoesEntities();
+            }
 
-                return _context;
+            return _context;
         }
-
         public Khalitov41ShoesEntities()
             : base("name=Khalitov41ShoesEntities")
         {
