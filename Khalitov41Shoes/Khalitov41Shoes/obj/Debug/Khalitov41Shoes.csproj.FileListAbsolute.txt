@@ -18,3 +18,10 @@ D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov4
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes.csproj.CoreCompileInputs.cache
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes.exe
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes.pdb
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\EntityFramework.dll
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\EntityFramework.SqlServer.dll
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\EntityFramework.xml
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\EntityFramework.SqlServer.xml
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\ru\EntityFramework.resources.dll
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes_Content.g.cs
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes.csproj.CopyComplete

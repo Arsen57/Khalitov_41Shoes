@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Khalitov41Shoes"
         mc:Ignorable="d"
-        Title="Обувь Халитов" MinHeight="450" MinWidth="800" FontFamily="Tw Cen MT" Icon="Images/icon.ico">
+        Title="Обувь Халитов" MinHeight="450" MinWidth="800" FontFamily="Comic Sans MS" Icon="Images/icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -13,9 +13,10 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Image Source="Images/logo.png" HorizontalAlignment="Left"></Image>
-        <TextBlock Text="Магазин обуви" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="ООО 41 размер" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         <Button Content="Назад" Name="BtnBack" HorizontalAlignment="Right" 
                 Click="BtnBack_Click"></Button>
+        
      </Grid>
 </Window>

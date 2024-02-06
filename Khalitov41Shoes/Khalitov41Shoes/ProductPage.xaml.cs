@@ -20,9 +20,25 @@ namespace Khalitov41Shoes
     /// </summary>
     public partial class ProductPage : Page
     {
+        int CountRecords;
+        int CountPage;
+        int CurrentPage = 0;
+
+        List<Product> CurrentPageList = new List<Product>();
+        List<Product> TableList;
         public ProductPage()
         {
             InitializeComponent();
+            //добавить строки
+            //загрузить в список из БД
+            var currentProduct = Khalitov41ShoesEntities.GetContext().Product.ToList();
+            //связаться с листвью
+            ProductListView.ItemsSource = currentProduct;
+            //добавить строки
+            //CostComboBox.SelectedIndex = 0;
+            //DiscntComboBox.SelectedIndex = 0;
+
+            //UpdateProduct();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

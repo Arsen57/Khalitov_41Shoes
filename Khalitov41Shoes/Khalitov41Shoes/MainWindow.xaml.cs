@@ -40,7 +40,8 @@ namespace Khalitov41Shoes
             }
             else
             {
-                BtnBack.Visibility = Visibility.Hidden;            }
+                BtnBack.Visibility = Visibility.Hidden;          
+            }
         }
     }
 }
