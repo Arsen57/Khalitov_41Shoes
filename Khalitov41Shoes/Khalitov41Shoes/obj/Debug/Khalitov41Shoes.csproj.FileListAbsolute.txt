@@ -25,3 +25,5 @@ D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\EntityFra
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\bin\Debug\ru\EntityFramework.resources.dll
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes_Content.g.cs
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes.csproj.CopyComplete
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\AuthPage.g.cs
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\AuthPage.baml

@@ -17,7 +17,15 @@
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBox Name="ProdSearch" TextChanged="ProdSearch_TextChanged" Width="350" FontSize="16" HorizontalAlignment="Left" Margin="5"></TextBox>
+            <TextBlock Text="Вы авторизованы как: " FontSize="18"></TextBlock>
+            <TextBlock Name="FIOTB" Text="" FontSize="18"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Text="Роль: " FontSize="18"></TextBlock>
+            <TextBlock Name="RoleTB" Text="" FontSize="18"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
+        <TextBox Name="ProdSearch" TextChanged="ProdSearch_TextChanged" Width="350" FontSize="16" HorizontalAlignment="Left" Margin="5"></TextBox>
             <ComboBox Name="CostComboBox" Width="170" FontSize="16" Margin="5" SelectionChanged="CostComboBox_SelectionChanged">
                 <TextBlock> По стоимости </TextBlock>
                 <TextBlock> По возрастанию</TextBlock>
@@ -32,7 +40,7 @@
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left">
             <TextBlock Text="Кол-во:" FontSize="18" Margin="5"></TextBlock>
             <TextBlock Name="ProdAtTheMoment" Text="" Margin="5" FontSize="18"></TextBlock>
             <TextBlock Text="из" FontSize="18" Margin="5"></TextBlock>

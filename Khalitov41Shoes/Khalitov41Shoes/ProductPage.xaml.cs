@@ -26,11 +26,29 @@ namespace Khalitov41Shoes
 
         List<Product> CurrentPageList = new List<Product>();
         List<Product> TableList;
-        public ProductPage()
+        public ProductPage(User user)
         {
             InitializeComponent();
             //добавить строки
             //загрузить в список из БД
+            if (user != null)
+            {
+                FIOTB.Text = user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+                switch (user.UserRole)
+                {
+                    case 1:
+                        RoleTB.Text = "Клиент"; break;
+                    case 2:
+                        RoleTB.Text = "Менеджер"; break;
+                    case 3:
+                        RoleTB.Text = "Администратор"; break;
+                }
+            }
+            else
+            {
+                FIOTB.Text = "гость";
+                RoleTB.Text = "Гость";
+            }
             var currentProduct = Khalitov41ShoesEntities.GetContext().Product.ToList();
             //связаться с листвью
             ProductListView.ItemsSource = currentProduct;
