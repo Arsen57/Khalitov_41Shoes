@@ -27,3 +27,5 @@ D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov4
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\Khalitov41Shoes.csproj.CopyComplete
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\AuthPage.g.cs
 D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\AuthPage.baml
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\OrderWindow.g.cs
+D:\Downloads\Khalitov41Shoes\Khalitov41Shoes\Khalitov41Shoes\obj\Debug\OrderWindow.baml

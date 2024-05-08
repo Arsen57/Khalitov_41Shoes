@@ -20,6 +20,11 @@ namespace Khalitov41Shoes
     /// </summary>
     public partial class ProductPage : Page
     {
+        User currentUser;
+        int newOrderId;
+
+        List<OrderProduct> selectedOrderProducts = new List<OrderProduct>();
+        List<Product> selectedProducts = new List<Product>();
         int CountRecords;
         int CountPage;
         int CurrentPage = 0;
@@ -29,6 +34,12 @@ namespace Khalitov41Shoes
         public ProductPage(User user)
         {
             InitializeComponent();
+
+            if (selectedProducts.Count == 0)
+            {
+                BtnOrder.Visibility = Visibility.Hidden;
+            }
+            currentUser = user;
             //добавить строки
             //загрузить в список из БД
             if (user != null)
@@ -49,6 +60,18 @@ namespace Khalitov41Shoes
                 FIOTB.Text = "гость";
                 RoleTB.Text = "Гость";
             }
+
+            List<Product> currentProducts = Khalitov41ShoesEntities.GetContext().Product.ToList();
+            ProductListView.ItemsSource = currentProducts;
+            List<Order> allOrder = Khalitov41ShoesEntities.GetContext().Order.ToList();
+            List<int> allOrderId = new List<int>();
+            foreach (var p in allOrder.Select(x => $"{x.OrderID}").ToList())
+            {
+                allOrderId.Add(Convert.ToInt32(p));
+            }
+
+            newOrderId = allOrderId.Max() + 1;
+
             var currentProduct = Khalitov41ShoesEntities.GetContext().Product.ToList();
             //связаться с листвью
             ProductListView.ItemsSource = currentProduct;
@@ -86,8 +109,14 @@ namespace Khalitov41Shoes
         {
             var currentProduct = Khalitov41ShoesEntities.GetContext().Product.ToList();
             currentProduct = currentProduct.Where(p => p.ProductName.ToLower().Contains(ProdSearch.Text.ToLower())).ToList();
+            if (selectedProducts.Count > 0)
+            {
+                BtnOrder.Visibility = Visibility.Visible;
+            }
+
             if (CostComboBox.SelectedIndex == 0)
             {
+                currentProduct = currentProduct.Where(p => p.ProductDiscountAmount >= 0 && p.ProductDiscountAmount <= 100).ToList();
             }
             else if (CostComboBox.SelectedIndex == 1)
             {
@@ -119,7 +148,67 @@ namespace Khalitov41Shoes
             ProductListView.ItemsSource = currentProduct;
 
             TableList = currentProduct;
+            if (selectedProducts.Count == 0)
+            {
+                BtnOrder.Visibility = Visibility.Hidden;
+            }
 
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            OrderWindow window = new OrderWindow(selectedOrderProducts, selectedProducts, currentUser);
+            window.ShowDialog();
+            UpdateProduct();
+        }
+
+        private void AddInOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProductListView.SelectedIndex >= 0)
+            {
+                List<Order> allOrder = Khalitov41ShoesEntities.GetContext().Order.ToList();
+                List<int> allOrderId = new List<int>();
+                foreach (var p in allOrder.Select(x => $"{x.OrderID}").ToList())
+                {
+                    allOrderId.Add(Convert.ToInt32(p));
+                }
+
+                newOrderId = allOrderId.Max() + 1;
+                var prod = ProductListView.SelectedItem as Product;
+
+                //int newOrderID = selectedOrderProducts.Last().Order.OrderID;
+                var newOrderProd = new OrderProduct();
+                newOrderProd.OrderID = newOrderId;
+
+                newOrderProd.ProductArticleNumber = prod.ProductArticleNumber;
+                newOrderProd.Amount = 1;
+                var selOP = selectedOrderProducts.Where(p => Equals(p.ProductArticleNumber, prod.ProductArticleNumber));
+
+                if (selOP.Count() == 0)
+                {
+                    selectedOrderProducts.Add(newOrderProd);
+                    selectedProducts.Add(prod);
+                }
+                else
+                {
+                    foreach (OrderProduct p in selectedOrderProducts)
+                    {
+                        if (p.ProductArticleNumber == prod.ProductArticleNumber)
+                            p.Amount++;
+                    }
+                }
+
+                BtnOrder.Visibility = Visibility.Visible;
+                ProductListView.SelectedIndex = -1;
+
+                UpdateProduct();
+            }
         }
     }
 }
+

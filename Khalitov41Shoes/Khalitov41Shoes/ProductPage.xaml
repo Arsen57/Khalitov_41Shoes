@@ -13,7 +13,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
+            <!--<RowDefinition Height="auto"/>-->
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" Grid.Row="0">
@@ -40,6 +40,8 @@
             </ComboBox>
         </StackPanel>
 
+        <Button Content="Заказ" Name="BtnOrder" Click="BtnOrder_Click" Grid.Column="2" Grid.Row="0"/>
+        
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left">
             <TextBlock Text="Кол-во:" FontSize="18" Margin="5"></TextBlock>
             <TextBlock Name="ProdAtTheMoment" Text="" Margin="5" FontSize="18"></TextBlock>
@@ -49,6 +51,11 @@
 
 
         <ListView Name="ProductListView" Grid.Row="2">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" Name="AddInOrder" Click="AddInOrder_Click"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

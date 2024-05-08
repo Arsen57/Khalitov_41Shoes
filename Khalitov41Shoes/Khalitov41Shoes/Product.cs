@@ -29,10 +29,28 @@ namespace Khalitov41Shoes
         public string ProductProvider { get; set; }
         public string ProductCategory { get; set; }
         public Nullable<int> ProductDiscountAmount { get; set; }
-        public Nullable<int> ProductQuantityInStock { get; set; }
+        public int ProductQuantityInStock { get; set; }
         public string ProductDescription { get; set; }
         public string ProductPhoto { get; set; }
-    
+        public int Quantity { get; set; }
+
+        public int inStock
+        {
+            get
+            {
+
+                int stock = ProductQuantityInStock - Quantity;
+                if (stock < 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return stock;
+                }
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }
